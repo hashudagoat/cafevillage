@@ -1,1 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cafe Village - Traditional Vibes, Exceptional Chai</title>
+    <!-- Tailwind CSS CDN for high-performance responsive utility layout styling -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        body {
+            background-color: #121212;
+            color: #F3F4F6;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+        .custom-scroll::-webkit-scrollbar {
+            display: none;
+        }
+        .custom-scroll {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-amber-600 selection:text-white">
 
+    <!-- STICKY NAVBAR -->
+    <nav class="sticky top-0 z-50 bg-[#121212]/90 backdrop-blur-md border-b border-zinc-800 px-4 py-3 flex justify-between items-center">
+        <div class="flex flex-col">
+            <span class="text-xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-500">CAFE VILLAGE</span>
+            <span class="text-[10px] text-zinc-400 tracking-widest font-semibold uppercase">Hyderabad, Pakistan</span>
+        </div>
+        <div class="flex items-center gap-2 bg-zinc-900 border border-zinc-800 px-3 py-1.5 rounded-full shadow-inner">
+            <span class="relative flex h-2 w-2">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+            </span>
+            <span class="text-xs font-bold text-emerald-400 tracking-wide">Open 24 Hours</span>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="relative px-6 py-16 text-center border-b border-zinc-900 bg-gradient-to-b from-amber-950/10 to-transparent">
+        <div class="max-w-2xl mx-auto space-y-6">
+            <h1 class="text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
+                Traditional Vibes.<br><span class="text-amber-500">Exceptional Chai.</span>
+            </h1>
+            <p class="text-sm text-zinc-400 leading-relaxed max-w-md mx-auto">
+                Hyderabad's ultimate 24/7 destination for premium slow-brewed Chai, authentic open-fire BBQ, and peaceful village aesthetics.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-3 justify-center pt-2">
+                <a href="#menu-section" class="bg-amber-600 hover:bg-amber-700 text-zinc-950 font-bold px-6 py-3 rounded-xl transition text-sm shadow-lg shadow-amber-950/30">
+                    Explore Full Menu
+                </a>
+                <a href="#location-section" class="bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-white font-medium px-6 py-3 rounded-xl transition text-sm">
+                    Get Directions
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXPERIENCE AMBIANCE GRID -->
+    <section class="px-4 py-12 max-w-4xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="bg-zinc-900/50 border border-zinc-800/80 p-5 rounded-2xl flex items-start gap-4">
+                <div class="p-3 bg-amber-500/10 text-amber-500 rounded-xl text-xl font-bold">⛺</div>
+                <div>
+                    <h3 class="font-bold text-zinc-200 text-sm">Village Theme Ambiance</h3>
+                    <p class="text-xs text-zinc-500 mt-1">Open-air setups optimized for family relaxation and complete smoking-zone convenience.</p>
+                </div>
+            </div>
+            <div class="bg-zinc-900/50 border border-zinc-800/80 p-5 rounded-2xl flex items-start gap-4">
+                <div class="p-3 bg-amber-500/10 text-amber-500 rounded-xl text-xl font-bold">🎻</div>
+                <div>
+                    <h3 class="font-bold text-zinc-200 text-sm">Peaceful & Classical</h3>
+                    <p class="text-xs text-zinc-500 mt-1">A quiet getaway from urban noise, blending classical background vibes with evening comfort.</p>
+                </div>
+            </div>
+            <div class="bg-zinc-900/50 border border-zinc-800/80 p-5 rounded-2xl flex items-start gap-4">
+                <div class="p-3 bg-amber-500/10 text-amber-500 rounded-xl text-xl font-bold">☕</div>
+                <div>
+                    <h3 class="font-bold text-zinc-200 text-sm">Behtreen Premium Tea</h3>
+                    <p class="text-xs text-zinc-500 mt-1">Our hallmark traditional tea variants crafted live with scenic open views.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERACTIVE TABBED MENU SYSTEM -->
+    <section id="menu-section" class="px-4 py-12 bg-zinc-900/20 border-y border-zinc-900">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center space-y-2 mb-8">
+                <h2 class="text-2xl font-black text-white tracking-tight">Our Premium Menu</h2>
+                <p class="text-xs text-zinc-500">Tap on any category below to filter menu options instantly.</p>
+            </div>
+
+            <!-- Horizontal Swipeable Tabs Container for Mobile Screen Flexibility -->
+            <div class="flex gap-2 overflow-x-auto pb-3 mb-6 custom-scroll snap-x px-2">
+                <button onclick="switchTab('highlights')" id="btn-highlights" class="snap-center shrink-0 bg-amber-600 text-zinc-950 font-bold px-5 py-2.5 rounded-full text-xs transition cursor-pointer">✨ Highlights</button>
+                <button onclick="switchTab('rolls')" id="btn-rolls" class="snap-center shrink-0 bg-zinc-900 text-zinc-400 font-medium px-5 py-2.5 rounded-full text-xs transition border border-zinc-800 cursor-pointer">🌯 Chicken Rolls</button>
+                <button onclick="switchTab('specials')" id="btn-specials" class="snap-center shrink-0 bg-zinc-900 text-zinc-400 font-medium px-5 py-2.5 rounded-full text-xs transition border border-zinc-800 cursor-pointer">🍳 Village Specials</button>
+                <button onclick="switchTab('deals')" id="btn-deals" class="snap-center shrink-0 bg-zinc-900 text-zinc-400 font-medium px-5 py-2.5 rounded-full text-xs transition border border-zinc-800 cursor-pointer">🔥 Super Deals</button>
+            </div>
+
+            <!-- MENU PANELS CONTAINER -->
+            <div id="menu-container" class="grid grid-cols-1 sm:grid-cols-2 gap-3 min-h-[300px]">
+                <!-- Content will handle injection dynamically via Client JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS SECTION -->
+    <section class="px-4 py-16 max-w-4xl mx-auto">
+        <div class="text-center space-y-2 mb-10">
+            <h2 class="text-2xl font-black text-white tracking-tight">Real Customer Voice</h2>
+            <p class="text-xs text-zinc-500">Verified reviews directly from Google Maps entries.</p>
+        </div>
+
+        <div class="columns-1 sm:columns-2 gap-4 space-y-4">
+            <div class="break-inside-avoid bg-zinc-900/40 border border-zinc-800/60 p-5 rounded-2xl space-y-2">
+                <div class="text-amber-500 text-sm">⭐⭐⭐⭐⭐</div>
+                <p class="text-sm text-zinc-300 font-medium">"best place like a village Theme And for somkeing"</p>
+                <div class="text-[11px] text-zinc-500 font-semibold">— Rehman Liaquat</div>
+            </div>
+            <div class="break-inside-avoid bg-zinc-900/40 border border-zinc-800/60 p-5 rounded-2xl space-y-2">
+                <div class="text-amber-500 text-sm">⭐⭐⭐⭐⭐</div>
+                <p class="text-sm text-zinc-300 font-medium">"A very wonderful and peaceful environment here A classical and beautiful environment"</p>
+                <div class="text-[11px] text-zinc-500 font-semibold">— Salman Ahmed</div>
+            </div>
+            <div class="break-inside-avoid bg-zinc-900/40 border border-zinc-800/60 p-5 rounded-2xl space-y-2">
+                <div class="text-amber-500 text-sm">⭐⭐⭐⭐⭐</div>
+                <p class="text-sm text-zinc-300 font-medium">"Behtreen Cafe for tea and view ❤️"</p>
+                <div class="text-[11px] text-zinc-500 font-semibold">— Salar Ali</div>
+            </div>
+            <div class="break-inside-avoid bg-zinc-900/40 border border-zinc-800/60 p-5 rounded-2xl space-y-2">
+                <div class="text-amber-500 text-sm">⭐⭐⭐⭐⭐</div>
+                <p class="text-sm text-zinc-300 font-medium">"Very nice place"</p>
+                <div class="text-[11px] text-zinc-500 font-semibold">— PUBG GAMING MOBILE</div>
+            </div>
+            <div class="break-inside-avoid bg-zinc-900/40 border border-zinc-800/60 p-5 rounded-2xl space-y-2">
+                <div class="text-amber-500 text-sm">⭐⭐⭐⭐⭐</div>
+                <p class="text-sm text-zinc-300 font-medium">"Excellent hotel"</p>
+                <div class="text-[11px] text-zinc-500 font-semibold">— Rameez Ahmed</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER, CONTACT & LOCATION MAP MAP SECTION -->
+    <footer id="location-section" class="bg-zinc-950 border-t border-zinc-900 px-4 py-12">
+        <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+            
+            <!-- CONTACT FORM AREA -->
+            <div class="space-y-4">
+                <div>
+                    <h3 class="text-lg font-bold text-white">Message Management</h3>
+                    <p class="text-xs text-zinc-500">Have questions or want to host a birthday party? Drop details below.</p>
+                </div>
+                
+                <!-- Active Form Endpoint pointing to Web3Forms API to process requests instantly -->
+                <form action="https://api.web3forms.com/submit" method="POST" id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-3">
+                    <!-- DROP YOUR WEB3FORMS ACCESS KEY IN VALUE FIELD BELOW -->
+                    <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+                    <input type="hidden" name="subject" value="New Customer Message from Cafe Village Website">
+                    <input type="checkbox" name="botcheck" id="" style="display: none;">
+
+                    <div>
+                        <input type="text" name="name" required placeholder="Your Full Name" class="w-full bg-zinc-900 border border-zinc-800 text-zinc-200 px-4 py-2.5 rounded-xl text-sm focus:outline-none focus:border-amber-500 transition">
+                    </div>
+                    <div>
+                        <input type="tel" name="phone" required placeholder="Your Phone Number / WhatsApp" class="w-full bg-zinc-900 border border-zinc-800 text-zinc-200 px-4 py-2.5 rounded-xl text-sm focus:outline-none focus:border-amber-500 transition">
+                    </div>
+                    <div>
+                        <textarea name="message" rows="3" required placeholder="Write your requirements here..." class="w-full bg-zinc-900 border border-zinc-800 text-zinc-200 px-4 py-2.5 rounded-xl text-sm focus:outline-none focus:border-amber-500 transition resize-none"></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-zinc-800 hover:bg-amber-600 text-white hover:text-zinc-950 font-bold py-2.5 rounded-xl text-xs transition tracking-wide uppercase cursor-pointer">
+                        Send Message
+                    </button>
+                </form>
+                <div id="form-success" class="hidden bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 p-4 rounded-xl text-center space-y-1">
+                    <p class="text-sm font-bold">Message Sent Successfully!</p>
+                    <p class="text-xs text-zinc-400">Cafe Village management will contact you shortly.</p>
+                </div>
+            </div>
+
+            <!-- MAP LOCATION SYSTEM -->
+            <div class="space-y-4">
+                <div>
+                    <h3 class="text-lg font-bold text-white">Find Our Location</h3>
+                    <p class="text-xs text-zinc-500">📍 Defence, پنهنور ڳوٺ, Hyderabad, Sindh</p>
+                </div>
+                <div class="w-full h-48 rounded-2xl overflow-hidden border border-zinc-800 shadow-inner bg-zinc-900">
+                    <!-- Secure Google Maps location block for direct routing navigation mapping -->
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3604.5950853472095!2d68.3846669!3d25.3840788!2m3!1f0!2f0!3f0!2m3!1i1024!2i768!4f13.1!3m3!1m2!1s0x394c710037f59d57%3A0xc3fec3f40d6e4b98!2sCafe%20Village!5e0!3m2!1sen!2s!4v1716900000000!5m2!1sen!2s" class="w-full h-full border-0 grayscale invert opacity-80" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+
+        </div>
+        <div class="text-center mt-12 pt-6 border-t border-zinc-900 text-[10px] text-zinc-600 font-semibold tracking-wider uppercase">
+            &copy; 2026 Cafe Village. Designed & Developed via Smartphone Application.
+        </div>
+    </footer>
+
+    <!-- ENGINE LOGIC PROCESSOR -->
+    <script>
+        const menuData = {
+            highlights: [
+                { name: "Crispy French Fries", price: "220" },
+                { name: "Premium Hot Karak Tea", price: "120" },
+                { name: "Special Doodh Patti Chai", price: "120" },
+                { name: "Classic Club Sandwich", price: "380" }
+            ],
+            rolls: [
+                { name: "Chicken Chatni Roll", price: "180" },
+                { name: "Chicken Chatni Cheese Roll", price: "230" },
+                { name: "Chicken Mayo Roll", price: "190" },
+                { name: "Chicken Mayo Cheese Roll", price: "240" },
+                { name: "Chicken Behari Roll Options", price: "210" },
+                { name: "Chicken Malai Roll Options", price: "220" },
+                { name: "Chicken Broast Roll Options", price: "230" },
+                { name: "Chicken Reshmi / Green Boti Roll", price: "200" },
+                { name: "Vegetable Roll Selection", price: "140" }
+            ],
+            specials: [
+                { name: "Special Drum Sticks (04 Pcs)", price: "550" },
+                { name: "Special Mix Kabab Platter", price: "690" },
+                { name: "Boti Boneless Juicy BBQ", price: "600" },
+                { name: "Premium Creamy Pasta Bowl", price: "450" },
+                { name: "Flavour Paratha (Multiple Options)", price: "90" }
+            ],
+            deals: [
+                { name: "Midnight Super Deal 1", price: "399" },
+                { name: "Special Pizza Deal 1", price: "499" },
+                { name: "Mega Pizza Deal 4 Combo", price: "1299" },
+                { name: "Premium Family Combo Deal", price: "2499" },
+                { name: "Complete Birthday Celebration Package", price: "4999" }
+            ]
+        };
+
+        function switchTab(category) {
+            const tabs = ['highlights', 'rolls', 'specials', 'deals'];
+            tabs.forEach(t => {
+                const btn = document.getElementById(`btn-${t}`);
+                if (t === category) {
+                    btn.className = "snap-center shrink-0 bg-amber-600 text-zinc-950 font-bold px-5 py-2.5 rounded-full text-xs transition cursor-pointer shadow-md";
+                } else {
+                    btn.className = "snap-center shrink-0 bg-zinc-900 text-zinc-400 font-medium px-5 py-2.5 rounded-full text-xs transition border border-zinc-800 cursor-pointer";
+                }
+            });
+
+            const container = document.getElementById('menu-container');
+            container.innerHTML = '';
+
+            menuData[category].forEach(item => {
+                const itemHTML = `
+                    <div class="bg-zinc-900/40 border border-zinc-800/50 p-4 rounded-xl flex justify-between items-center transition hover:border-zinc-700">
+                        <span class="text-sm font-semibold text-zinc-200 tracking-wide">${item.name}</span>
+                        <div class="text-right shrink-0">
+                            <span class="text-[10px] text-amber-500 font-bold block uppercase tracking-wider">PKR</span>
+                            <span class="text-base font-black text-white">${item.price}</span>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += itemHTML;
+            });
+        }
+
+        function handleFormSubmit(event) {
+            // Prevent standard reload to protect UI client runtime flow state
+            event.preventDefault();
+            const form = document.getElementById('contact-form');
+            const successBox = document.getElementById('form-success');
+            
+            // Post payload directly to Web3Forms serverless background worker
+            fetch(form.action, {
+                method: 'POST',
+                body: new FormData(form)
+            }).then(response => {
+                if (response.ok) {
+                    form.classList.add('hidden');
+                    successBox.classList.remove('hidden');
+                }
+            });
+        }
+
+        // Initialize display to show Highlights array on initial render boot
+        switchTab('highlights');
+    </script>
+</body>
+</html>
